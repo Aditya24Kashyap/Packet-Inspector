@@ -1056,3 +1056,16 @@ The key insight is that even HTTPS traffic leaks the destination domain in the T
 If you have questions about any part of this project, the code is well-commented and follows the same flow described in this document. Start with the simple version (`main_working.cpp`) to understand the concepts, then move to the multi-threaded version (`dpi_mt.cpp`) to see how parallelism is added.
 
 Happy learning! 🚀
+
+## Shortcuts :-
+
+dir
+
+g++ -std=c++17 -pthread -O2 -I include -o dpi_engine src/dpi_mt.cpp src/pcap_reader.cpp src/packet_parser.cpp src/sni_extractor.cpp src/types.cpp
+
+chcp 65001
+
+dpi_engine.exe test_dpi.pcap output.pcap
+
+dpi_engine.exe test_dpi.pcap output.pcap --block-app YouTube --block-app TikTok --block-ip 192.168.1.50 --block-domain facebook
+
